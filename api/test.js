@@ -9,7 +9,6 @@ const pool = new Pool({
 
 export default async function handler(req, res) {
   try {
-    // A simple query to prove the database is talking to us
     const result = await pool.query("SELECT NOW() as current_time, 'Neon connected successfully!' as message");
     
     res.status(200).json({ success: true, data: result.rows[0] });
